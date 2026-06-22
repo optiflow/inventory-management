@@ -11,26 +11,40 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">{{ t('inventory.stockLevels') }} ({{ filteredItems.length }} {{ t('inventory.skus') }})</h3>
-          <div class="search-box">
-            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-            </svg>
-            <input
-              v-model="searchQuery"
-              type="text"
-              :placeholder="t('inventory.searchPlaceholder')"
-              class="search-input"
-            />
+          <div class="inventory-actions">
             <button
-              v-if="searchQuery"
-              @click="searchQuery = ''"
-              class="clear-search"
-              :title="t('inventory.clearSearch')"
+              type="button"
+              class="export-csv-button"
+              :disabled="filteredItems.length === 0"
+              :title="t('inventory.exportCsv')"
+              @click="exportInventoryCsv"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h8.586A2 2 0 0114 2.586L17.414 6A2 2 0 0118 7.414V17a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm10 1.414V7h2.586L13 4.414zM5 4v12h11V9h-4a1 1 0 01-1-1V4H5zm3 7a1 1 0 011-1h3a1 1 0 110 2H9a1 1 0 01-1-1zm0 3a1 1 0 011-1h5a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd" />
               </svg>
+              <span>{{ t('inventory.exportCsv') }}</span>
             </button>
+            <div class="search-box">
+              <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+              </svg>
+              <input
+                v-model="searchQuery"
+                type="text"
+                :placeholder="t('inventory.searchPlaceholder')"
+                class="search-input"
+              />
+              <button
+                v-if="searchQuery"
+                @click="searchQuery = ''"
+                class="clear-search"
+                :title="t('inventory.clearSearch')"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
         <div class="table-container">
@@ -196,6 +210,53 @@ export default {
       return categoryMap[category] || category
     }
 
+    const formatCsvValue = (value) => {
+      const text = value === null || value === undefined ? '' : String(value)
+      return /[",\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text
+    }
+
+    const exportInventoryCsv = () => {
+      if (filteredItems.value.length === 0) return
+
+      const headers = [
+        t('inventory.table.sku'),
+        t('inventory.table.itemName'),
+        t('inventory.table.category'),
+        t('inventory.table.quantityOnHand'),
+        t('inventory.table.reorderPoint'),
+        t('inventory.table.unitCost'),
+        t('inventory.table.totalValue'),
+        t('inventory.table.location'),
+        t('inventory.table.status')
+      ]
+
+      const rows = filteredItems.value.map((item) => [
+        item.sku,
+        translateProductName(item.name),
+        translateCategory(item.category),
+        item.quantity_on_hand,
+        item.reorder_point,
+        item.unit_cost.toFixed(2),
+        (item.quantity_on_hand * item.unit_cost).toFixed(2),
+        translateWarehouse(item.location),
+        getStockStatus(item)
+      ])
+
+      const csv = [headers, ...rows]
+        .map((row) => row.map(formatCsvValue).join(','))
+        .join('\n')
+      const blob = new Blob([`\uFEFF${csv}`], { type: 'text/csv;charset=utf-8;' })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+
+      link.href = url
+      link.download = 'inventory.csv'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+    }
+
     const showItemDetail = (item) => {
       selectedItem.value = item
       showItemModal.value = true
@@ -213,6 +274,7 @@ export default {
       getStockStatus,
       getStockStatusClass,
       translateCategory,
+      exportInventoryCsv,
       showItemModal,
       selectedItem,
       showItemDetail,
@@ -252,6 +314,44 @@ export default {
   font-weight: 600;
   color: #0f172a;
   margin: 0;
+}
+
+.inventory-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.export-csv-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.export-csv-button:hover:not(:disabled) {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.export-csv-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.export-csv-button svg {
+  width: 16px;
+  height: 16px;
 }
 
 .search-box {
@@ -335,5 +435,28 @@ export default {
 
 .clickable-row:hover {
   background: #eff6ff !important;
+}
+
+@media (max-width: 768px) {
+  .card-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .inventory-actions {
+    align-items: stretch;
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .export-csv-button {
+    justify-content: center;
+  }
+
+  .search-box {
+    min-width: 0;
+    width: 100%;
+  }
 }
 </style>
