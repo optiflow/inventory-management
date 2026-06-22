@@ -9,8 +9,8 @@
 
     <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen }">
       <div class="sidebar-logo">
-        <h1>{{ t('nav.companyName') }}</h1>
-        <span class="subtitle">{{ t('nav.subtitle') }}</span>
+        <h1>{{ t("nav.companyName") }}</h1>
+        <span class="subtitle">{{ t("nav.subtitle") }}</span>
       </div>
 
       <nav class="sidebar-nav" @click="sidebarOpen = false">
@@ -21,14 +21,23 @@
           :title="t('nav.overview')"
         >
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" rx="1"/>
-              <rect x="14" y="3" width="7" height="7" rx="1"/>
-              <rect x="3" y="14" width="7" height="7" rx="1"/>
-              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
             </svg>
           </span>
-          <span class="nav-label">{{ t('nav.overview') }}</span>
+          <span class="nav-label">{{ t("nav.overview") }}</span>
         </router-link>
 
         <!-- Inventory — package/box icon -->
@@ -38,13 +47,24 @@
           :title="t('nav.inventory')"
         >
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
             </svg>
           </span>
-          <span class="nav-label">{{ t('nav.inventory') }}</span>
+          <span class="nav-label">{{ t("nav.inventory") }}</span>
         </router-link>
 
         <!-- Orders — clipboard icon -->
@@ -54,14 +74,25 @@
           :title="t('nav.orders')"
         >
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-              <line x1="9" y1="12" x2="15" y2="12"/>
-              <line x1="9" y1="16" x2="13" y2="16"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+              <line x1="9" y1="12" x2="15" y2="12" />
+              <line x1="9" y1="16" x2="13" y2="16" />
             </svg>
           </span>
-          <span class="nav-label">{{ t('nav.orders') }}</span>
+          <span class="nav-label">{{ t("nav.orders") }}</span>
         </router-link>
 
         <!-- Finance — credit card / dollar icon -->
@@ -71,12 +102,21 @@
           :title="t('nav.finance')"
         >
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-              <line x1="1" y1="10" x2="23" y2="10"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
             </svg>
           </span>
-          <span class="nav-label">{{ t('nav.finance') }}</span>
+          <span class="nav-label">{{ t("nav.finance") }}</span>
         </router-link>
 
         <!-- Demand Forecast — trending-up icon -->
@@ -86,12 +126,21 @@
           :title="t('nav.demandForecast')"
         >
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-              <polyline points="17 6 23 6 23 12"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+              <polyline points="17 6 23 6 23 12" />
             </svg>
           </span>
-          <span class="nav-label">{{ t('nav.demandForecast') }}</span>
+          <span class="nav-label">{{ t("nav.demandForecast") }}</span>
         </router-link>
 
         <!-- Reports — bar-chart icon -->
@@ -101,14 +150,23 @@
           :title="t('nav.reports')"
         >
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="20" x2="18" y2="10"/>
-              <line x1="12" y1="20" x2="12" y2="4"/>
-              <line x1="6" y1="20" x2="6" y2="14"/>
-              <line x1="2" y1="20" x2="22" y2="20"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+              <line x1="2" y1="20" x2="22" y2="20" />
             </svg>
           </span>
-          <span class="nav-label">{{ t('nav.reports') }}</span>
+          <span class="nav-label">{{ t("nav.reports") }}</span>
         </router-link>
 
         <!-- Collapse/expand toggle button — hidden on mobile (<768px) -->
@@ -132,10 +190,12 @@
               class="collapse-chevron"
               :class="{ 'collapse-chevron--right': sidebarCollapsed }"
             >
-              <polyline points="15 18 9 12 15 6"/>
+              <polyline points="15 18 9 12 15 6" />
             </svg>
           </span>
-          <span class="nav-label">{{ sidebarCollapsed ? 'Expand' : 'Collapse' }}</span>
+          <span class="nav-label">{{
+            sidebarCollapsed ? "Expand" : "Collapse"
+          }}</span>
         </button>
       </nav>
 
@@ -153,14 +213,55 @@
     <div class="app-main">
       <header class="topbar">
         <!-- Hamburger: visible on mobile only -->
-        <button class="sidebar-toggle" @click="sidebarOpen = !sidebarOpen" aria-label="Toggle navigation">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
+        <button
+          class="sidebar-toggle"
+          @click="sidebarOpen = !sidebarOpen"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
         </button>
         <h2 class="topbar-title">{{ currentPageTitle }}</h2>
+        <div class="topbar-actions">
+          <button
+            type="button"
+            class="theme-toggle"
+            :aria-label="themeToggleLabel"
+            :title="themeToggleLabel"
+            @click="toggleTheme"
+          >
+            <svg
+              v-if="isDarkMode"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zM4.22 15.78a1 1 0 010-1.42l.7-.7a1 1 0 011.42 1.42l-.7.7a1 1 0 01-1.42 0zM10 15a5 5 0 100-10 5 5 0 000 10zM14.36 14.36a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42zM16 10a1 1 0 011-1h1a1 1 0 110 2h-1a1 1 0 01-1-1zM14.36 5.64a1 1 0 010-1.42l.7-.7a1 1 0 111.42 1.42l-.7.7a1 1 0 01-1.42 0zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z"
+              />
+            </svg>
+            <svg
+              v-else
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            </svg>
+          </button>
+        </div>
       </header>
 
       <FilterBar />
@@ -187,177 +288,230 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
-import { useRoute } from 'vue-router'
-import { api } from './api'
-import { useAuth } from './composables/useAuth'
-import { useI18n } from './composables/useI18n'
-import FilterBar from './components/FilterBar.vue'
-import ProfileMenu from './components/ProfileMenu.vue'
-import ProfileDetailsModal from './components/ProfileDetailsModal.vue'
-import TasksModal from './components/TasksModal.vue'
-import LanguageSwitcher from './components/LanguageSwitcher.vue'
+import { ref, onMounted, onUnmounted, computed } from "vue";
+import { useRoute } from "vue-router";
+import { api } from "./api";
+import { useAuth } from "./composables/useAuth";
+import { useI18n } from "./composables/useI18n";
+import FilterBar from "./components/FilterBar.vue";
+import ProfileMenu from "./components/ProfileMenu.vue";
+import ProfileDetailsModal from "./components/ProfileDetailsModal.vue";
+import TasksModal from "./components/TasksModal.vue";
+import LanguageSwitcher from "./components/LanguageSwitcher.vue";
 
-const SIDEBAR_COLLAPSED_KEY = 'sidebarCollapsed'
+const SIDEBAR_COLLAPSED_KEY = "sidebarCollapsed";
+const THEME_KEY = "app-theme";
 // Tablet breakpoint: 768–1024px. Below this we switch to the off-canvas drawer.
-const TABLET_MIN = 768
-const TABLET_MAX = 1024
+const TABLET_MIN = 768;
+const TABLET_MAX = 1024;
+
+const getSystemTheme = () => {
+  if (
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    return "dark";
+  }
+
+  return "light";
+};
+
+const readInitialTheme = () => {
+  try {
+    const stored = localStorage.getItem(THEME_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+  } catch (e) {
+    // localStorage may be unavailable in some environments.
+  }
+
+  return getSystemTheme();
+};
+
+const applyTheme = (theme) => {
+  if (typeof document !== "undefined") {
+    document.documentElement.dataset.theme = theme;
+  }
+};
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     FilterBar,
     ProfileMenu,
     ProfileDetailsModal,
     TasksModal,
-    LanguageSwitcher
+    LanguageSwitcher,
   },
   setup() {
-    const { currentUser } = useAuth()
-    const { t } = useI18n()
-    const route = useRoute()
-    const showProfileDetails = ref(false)
-    const showTasks = ref(false)
-    const apiTasks = ref([])
-    const sidebarOpen = ref(false)
+    const { currentUser } = useAuth();
+    const { t } = useI18n();
+    const route = useRoute();
+    const showProfileDetails = ref(false);
+    const showTasks = ref(false);
+    const apiTasks = ref([]);
+    const sidebarOpen = ref(false);
+    const currentTheme = ref(readInitialTheme());
+    const isDarkMode = computed(() => currentTheme.value === "dark");
+    const themeToggleLabel = computed(() =>
+      isDarkMode.value ? t("theme.switchToLight") : t("theme.switchToDark"),
+    );
+
+    applyTheme(currentTheme.value);
+
+    const toggleTheme = () => {
+      currentTheme.value = isDarkMode.value ? "light" : "dark";
+      applyTheme(currentTheme.value);
+
+      try {
+        localStorage.setItem(THEME_KEY, currentTheme.value);
+      } catch (e) {
+        // Fail silently.
+      }
+    };
 
     // ---- Collapsed state ----
     // Read persisted preference from localStorage. If not set, default to false.
-    let persistedCollapsed = false
+    let persistedCollapsed = false;
     try {
-      const stored = localStorage.getItem(SIDEBAR_COLLAPSED_KEY)
+      const stored = localStorage.getItem(SIDEBAR_COLLAPSED_KEY);
       if (stored !== null) {
-        persistedCollapsed = stored === 'true'
+        persistedCollapsed = stored === "true";
       }
     } catch (e) {
       // localStorage may be unavailable in some environments — fail silently.
     }
-    const sidebarCollapsed = ref(persistedCollapsed)
+    const sidebarCollapsed = ref(persistedCollapsed);
 
     // Persist changes to localStorage whenever the user explicitly toggles.
     const persistCollapsed = (value) => {
       try {
-        localStorage.setItem(SIDEBAR_COLLAPSED_KEY, String(value))
+        localStorage.setItem(SIDEBAR_COLLAPSED_KEY, String(value));
       } catch (e) {
         // Fail silently.
       }
-    }
+    };
 
     const toggleCollapsed = () => {
-      sidebarCollapsed.value = !sidebarCollapsed.value
-      persistCollapsed(sidebarCollapsed.value)
-    }
+      sidebarCollapsed.value = !sidebarCollapsed.value;
+      persistCollapsed(sidebarCollapsed.value);
+    };
 
     // ---- Auto-collapse on tablet (768–1024px) ----
     // On tablet we always force the rail regardless of the user's stored preference.
     // We track whether the current viewport is in the tablet range so we can
     // restore the user's preference when they return to desktop (>1024px).
     const isTabletRange = () =>
-      window.innerWidth >= TABLET_MIN && window.innerWidth <= TABLET_MAX
+      window.innerWidth >= TABLET_MIN && window.innerWidth <= TABLET_MAX;
 
     const applyResponsiveCollapse = () => {
       if (isTabletRange()) {
         // Force collapsed on tablet — don't persist this forced state.
-        sidebarCollapsed.value = true
+        sidebarCollapsed.value = true;
       } else if (window.innerWidth > TABLET_MAX) {
         // Restore user's stored preference on desktop.
         try {
-          const stored = localStorage.getItem(SIDEBAR_COLLAPSED_KEY)
-          sidebarCollapsed.value = stored === 'true'
+          const stored = localStorage.getItem(SIDEBAR_COLLAPSED_KEY);
+          sidebarCollapsed.value = stored === "true";
         } catch (e) {
-          sidebarCollapsed.value = false
+          sidebarCollapsed.value = false;
         }
       }
       // Below TABLET_MIN (mobile) — the drawer rules; collapsed state is irrelevant.
-    }
+    };
 
     // Merge mock tasks from currentUser with API tasks
     const tasks = computed(() => {
-      return [...currentUser.value.tasks, ...apiTasks.value]
-    })
+      return [...currentUser.value.tasks, ...apiTasks.value];
+    });
 
     // Map each route path to its page title i18n key.
     const TITLE_KEYS = {
-      '/': 'nav.overview',
-      '/inventory': 'nav.inventory',
-      '/orders': 'nav.orders',
-      '/spending': 'nav.finance',
-      '/demand': 'nav.demandForecast',
-      '/reports': 'nav.reports',
-      '/backlog': 'nav.backlog'
-    }
-    const currentPageTitle = computed(() => t(TITLE_KEYS[route.path] || 'nav.overview'))
+      "/": "nav.overview",
+      "/inventory": "nav.inventory",
+      "/orders": "nav.orders",
+      "/spending": "nav.finance",
+      "/demand": "nav.demandForecast",
+      "/reports": "nav.reports",
+      "/backlog": "nav.backlog",
+    };
+    const currentPageTitle = computed(() =>
+      t(TITLE_KEYS[route.path] || "nav.overview"),
+    );
 
     const loadTasks = async () => {
       try {
-        apiTasks.value = await api.getTasks()
+        apiTasks.value = await api.getTasks();
       } catch (err) {
-        console.error('Failed to load tasks:', err)
+        console.error("Failed to load tasks:", err);
       }
-    }
+    };
 
     const addTask = async (taskData) => {
       try {
-        const newTask = await api.createTask(taskData)
+        const newTask = await api.createTask(taskData);
         // Add new task to the beginning of the array
-        apiTasks.value.unshift(newTask)
+        apiTasks.value.unshift(newTask);
       } catch (err) {
-        console.error('Failed to add task:', err)
+        console.error("Failed to add task:", err);
       }
-    }
+    };
 
     const deleteTask = async (taskId) => {
       try {
         // Check if it's a mock task (from currentUser)
-        const isMockTask = currentUser.value.tasks.some(t => t.id === taskId)
+        const isMockTask = currentUser.value.tasks.some((t) => t.id === taskId);
 
         if (isMockTask) {
           // Remove from mock tasks
-          const index = currentUser.value.tasks.findIndex(t => t.id === taskId)
+          const index = currentUser.value.tasks.findIndex(
+            (t) => t.id === taskId,
+          );
           if (index !== -1) {
-            currentUser.value.tasks.splice(index, 1)
+            currentUser.value.tasks.splice(index, 1);
           }
         } else {
           // Remove from API tasks
-          await api.deleteTask(taskId)
-          apiTasks.value = apiTasks.value.filter(t => t.id !== taskId)
+          await api.deleteTask(taskId);
+          apiTasks.value = apiTasks.value.filter((t) => t.id !== taskId);
         }
       } catch (err) {
-        console.error('Failed to delete task:', err)
+        console.error("Failed to delete task:", err);
       }
-    }
+    };
 
     const toggleTask = async (taskId) => {
       try {
         // Check if it's a mock task (from currentUser)
-        const mockTask = currentUser.value.tasks.find(t => t.id === taskId)
+        const mockTask = currentUser.value.tasks.find((t) => t.id === taskId);
 
         if (mockTask) {
           // Toggle mock task status
-          mockTask.status = mockTask.status === 'pending' ? 'completed' : 'pending'
+          mockTask.status =
+            mockTask.status === "pending" ? "completed" : "pending";
         } else {
           // Toggle API task
-          const updatedTask = await api.toggleTask(taskId)
-          const index = apiTasks.value.findIndex(t => t.id === taskId)
+          const updatedTask = await api.toggleTask(taskId);
+          const index = apiTasks.value.findIndex((t) => t.id === taskId);
           if (index !== -1) {
-            apiTasks.value[index] = updatedTask
+            apiTasks.value[index] = updatedTask;
           }
         }
       } catch (err) {
-        console.error('Failed to toggle task:', err)
+        console.error("Failed to toggle task:", err);
       }
-    }
+    };
 
     onMounted(() => {
-      loadTasks()
+      loadTasks();
       // Set initial collapsed state based on viewport
-      applyResponsiveCollapse()
-      window.addEventListener('resize', applyResponsiveCollapse)
-    })
+      applyResponsiveCollapse();
+      window.addEventListener("resize", applyResponsiveCollapse);
+    });
 
     onUnmounted(() => {
-      window.removeEventListener('resize', applyResponsiveCollapse)
-    })
+      window.removeEventListener("resize", applyResponsiveCollapse);
+    });
 
     return {
       t,
@@ -370,10 +524,13 @@ export default {
       sidebarOpen,
       sidebarCollapsed,
       toggleCollapsed,
-      currentPageTitle
-    }
-  }
-}
+      currentPageTitle,
+      isDarkMode,
+      themeToggleLabel,
+      toggleTheme,
+    };
+  },
+};
 </script>
 
 <style>
@@ -382,42 +539,52 @@ export default {
    radii, shadows, layout dimensions, and z-index layers.
    ============================================================ */
 :root {
+  color-scheme: light;
+
   /* ---- Color: surfaces & text ---- */
-  --color-bg:            #f8fafc;  /* app background (body)              */
-  --color-surface:       #ffffff;  /* cards, sidebar, topbar             */
-  --color-surface-alt:   #f8fafc;  /* table head, hover rows, inputs     */
-  --color-text:          #0f172a;  /* headings / strong text             */
-  --color-text-body:     #1e293b;  /* body text                          */
-  --color-text-muted:    #475569;  /* table cells / secondary headings   */
-  --color-text-subtle:   #64748b;  /* labels, subtitles, inactive nav    */
-  --color-text-faint:    #94a3b8;  /* placeholders, icons                */
+  --color-bg: #f8fafc; /* app background (body)              */
+  --color-surface: #ffffff; /* cards, sidebar, topbar             */
+  --color-surface-alt: #f8fafc; /* table head, hover rows, inputs     */
+  --color-text: #0f172a; /* headings / strong text             */
+  --color-text-body: #1e293b; /* body text                          */
+  --color-text-muted: #475569; /* table cells / secondary headings   */
+  --color-text-subtle: #64748b; /* labels, subtitles, inactive nav    */
+  --color-text-faint: #94a3b8; /* placeholders, icons                */
 
   /* ---- Color: borders ---- */
-  --color-border:        #e2e8f0;  /* default borders                    */
-  --color-border-strong: #cbd5e1;  /* hover borders / inputs             */
-  --color-border-faint:  #f1f5f9;  /* table row separators               */
+  --color-border: #e2e8f0; /* default borders                    */
+  --color-border-strong: #cbd5e1; /* hover borders / inputs             */
+  --color-border-faint: #f1f5f9; /* table row separators               */
 
   /* ---- Color: brand / primary ---- */
-  --color-primary:        #2563eb;
-  --color-primary-hover:  #1d4ed8;
-  --color-primary-soft:   #eff6ff;  /* active nav pill background         */
-  --color-focus-border:   #3b82f6;
-  --color-focus-ring:     rgba(59, 130, 246, 0.1);
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-soft: #eff6ff; /* active nav pill background         */
+  --color-focus-border: #3b82f6;
+  --color-focus-ring: rgba(59, 130, 246, 0.1);
 
   /* ---- Color: semantic (bg / text pairs, match current badges) ---- */
-  --color-success:      #10b981;  --color-success-bg: #d1fae5;  --color-success-text: #065f46;
-  --color-warning:      #f59e0b;  --color-warning-bg: #fed7aa;  --color-warning-text: #92400e;
-  --color-danger:       #dc2626;  --color-danger-bg:  #fecaca;  --color-danger-text:  #991b1b;
-  --color-info-bg:      #dbeafe;  --color-info-text:  #1e40af;
+  --color-success: #10b981;
+  --color-success-bg: #d1fae5;
+  --color-success-text: #065f46;
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fed7aa;
+  --color-warning-text: #92400e;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fecaca;
+  --color-danger-soft: #fef2f2;
+  --color-danger-text: #991b1b;
+  --color-info-bg: #dbeafe;
+  --color-info-text: #1e40af;
 
   /* ---- Spacing scale (4px base) ---- */
-  --space-1: 0.25rem;   /*  4px */
-  --space-2: 0.5rem;    /*  8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
+  --space-1: 0.25rem; /*  4px */
+  --space-2: 0.5rem; /*  8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
 
   /* ---- Radii ---- */
   --radius-sm: 6px;
@@ -428,21 +595,58 @@ export default {
   /* ---- Shadows ---- */
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 
   /* ---- Layout dimensions ---- */
-  --sidebar-width:      240px;
-  --sidebar-rail-width: 72px;    /* collapsed icon rail (tablet)         */
-  --topbar-height:      60px;    /* slimmer than the old 70px top nav    */
-  --content-max-width:  1600px;  /* preserved from old layout            */
+  --sidebar-width: 240px;
+  --sidebar-rail-width: 72px; /* collapsed icon rail (tablet)         */
+  --topbar-height: 60px; /* slimmer than the old 70px top nav    */
+  --content-max-width: 1600px; /* preserved from old layout            */
 
   /* ---- Z-index layers (single source of truth) ---- */
-  --z-filterbar:      80;
-  --z-topbar:         90;
-  --z-sidebar:        100;
-  --z-dropdown:       1000;  /* ProfileMenu / LanguageSwitcher menus      */
+  --z-filterbar: 80;
+  --z-topbar: 90;
+  --z-sidebar: 100;
+  --z-dropdown: 1000; /* ProfileMenu / LanguageSwitcher menus      */
   --z-modal-backdrop: 1100;
-  --z-modal:          1200;
+  --z-modal: 1200;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #111113;
+  --color-surface: #18181b;
+  --color-surface-alt: #242428;
+  --color-text: #f4f4f5;
+  --color-text-body: #e4e4e7;
+  --color-text-muted: #c4c4cc;
+  --color-text-subtle: #a1a1aa;
+  --color-text-faint: #71717a;
+
+  --color-border: #303036;
+  --color-border-strong: #3f3f46;
+  --color-border-faint: #27272a;
+
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+  --color-primary-soft: #172033;
+  --color-focus-border: #60a5fa;
+  --color-focus-ring: rgba(96, 165, 250, 0.18);
+
+  --color-success-bg: #064e3b;
+  --color-success-text: #bbf7d0;
+  --color-warning-bg: #78350f;
+  --color-warning-text: #fed7aa;
+  --color-danger-bg: #7f1d1d;
+  --color-danger-soft: rgba(127, 29, 29, 0.32);
+  --color-danger-text: #fecaca;
+  --color-info-bg: #1e3a8a;
+  --color-info-text: #bfdbfe;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.42);
 }
 
 /* ============================================================
@@ -455,14 +659,118 @@ export default {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
   background: var(--color-bg);
   color: var(--color-text-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app { min-height: 100vh; }
+.app {
+  min-height: 100vh;
+}
+
+:root[data-theme="dark"] body .filters-bar {
+  background: var(--color-surface);
+  border-bottom-color: var(--color-border);
+}
+
+:root[data-theme="dark"] body .filter-group label,
+:root[data-theme="dark"] body .globe-icon,
+:root[data-theme="dark"] body .chevron,
+:root[data-theme="dark"] body .dropdown-item svg {
+  color: var(--color-text-subtle);
+}
+
+:root[data-theme="dark"] body .filter-select,
+:root[data-theme="dark"] body .reset-filters-btn,
+:root[data-theme="dark"] body .language-button,
+:root[data-theme="dark"] body .profile-button {
+  background: var(--color-surface-alt);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+:root[data-theme="dark"] body .filter-select:hover,
+:root[data-theme="dark"] body .reset-filters-btn:hover:not(:disabled),
+:root[data-theme="dark"] body .language-button:hover,
+:root[data-theme="dark"] body .profile-button:hover,
+:root[data-theme="dark"] body .profile-menu--collapsed .profile-button:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text-faint);
+  color: var(--color-text);
+}
+
+:root[data-theme="dark"] body .dropdown-menu,
+:root[data-theme="dark"] body .modal-content {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-body);
+}
+
+:root[data-theme="dark"] body .dropdown-header,
+:root[data-theme="dark"] body .add-task-form,
+:root[data-theme="dark"] body .task-item,
+:root[data-theme="dark"] body .summary-card,
+:root[data-theme="dark"] body .detail-section {
+  background: var(--color-surface-alt);
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] body .dropdown-divider,
+:root[data-theme="dark"] body .modal-header,
+:root[data-theme="dark"] body .modal-footer,
+:root[data-theme="dark"] body .profile-details,
+:root[data-theme="dark"] body .detail-row {
+  border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] body .dropdown-divider {
+  background: var(--color-border);
+}
+
+:root[data-theme="dark"] body .dropdown-item,
+:root[data-theme="dark"] body .profile-name,
+:root[data-theme="dark"] body .user-name,
+:root[data-theme="dark"] body .modal-header h2,
+:root[data-theme="dark"] body .detail-value,
+:root[data-theme="dark"] body .summary-value,
+:root[data-theme="dark"] body .task-title,
+:root[data-theme="dark"] body .cost-item-name,
+:root[data-theme="dark"] body .product-name {
+  color: var(--color-text);
+}
+
+:root[data-theme="dark"] body .dropdown-item:hover,
+:root[data-theme="dark"] body .dropdown-item.active {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+:root[data-theme="dark"] body .user-email,
+:root[data-theme="dark"] body .detail-label,
+:root[data-theme="dark"] body .summary-label,
+:root[data-theme="dark"] body .task-meta,
+:root[data-theme="dark"] body .modal-close {
+  color: var(--color-text-subtle);
+}
+
+:root[data-theme="dark"] body input,
+:root[data-theme="dark"] body select,
+:root[data-theme="dark"] body textarea {
+  background: var(--color-surface-alt);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
 
 /* ============================================================
    Sidebar
@@ -504,7 +812,9 @@ body {
   font-weight: 700;
   color: var(--color-text);
   letter-spacing: -0.025em;
-  transition: font-size 0.2s ease, text-align 0.2s ease;
+  transition:
+    font-size 0.2s ease,
+    text-align 0.2s ease;
 }
 
 .sidebar-logo .subtitle {
@@ -550,7 +860,7 @@ body {
 
 /* Left accent bar on active link — replaces the old horizontal bottom border */
 .sidebar-nav a.active::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
@@ -657,6 +967,38 @@ body {
   letter-spacing: -0.025em;
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+.theme-toggle svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
 /* Hamburger button — visible only on mobile (<768px) */
 .sidebar-toggle {
   display: none;
@@ -740,13 +1082,26 @@ body {
    so .sidebar--collapsed applies anyway — but the media query acts as a
    safety net for the width/margin even if JS hasn't run yet. */
 @media (max-width: 1024px) {
-  .sidebar { width: var(--sidebar-rail-width); }
+  .sidebar {
+    width: var(--sidebar-rail-width);
+  }
   .sidebar .nav-label,
-  .sidebar-logo .subtitle { display: none; }
-  .sidebar-logo h1 { font-size: 1rem; text-align: center; }
-  .sidebar-nav a { justify-content: center; }
-  .sidebar-collapse-btn { justify-content: center; }
-  .app-main { margin-left: var(--sidebar-rail-width); }
+  .sidebar-logo .subtitle {
+    display: none;
+  }
+  .sidebar-logo h1 {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .sidebar-nav a {
+    justify-content: center;
+  }
+  .sidebar-collapse-btn {
+    justify-content: center;
+  }
+  .app-main {
+    margin-left: var(--sidebar-rail-width);
+  }
   /* Footer compact on tablet rail */
   .sidebar-footer {
     flex-direction: column;
@@ -762,20 +1117,40 @@ body {
   .sidebar {
     width: var(--sidebar-width);
     transform: translateX(-100%);
-    transition: transform 0.2s ease, width 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      width 0.2s ease;
   }
   /* When the drawer is open on mobile, always show full labels regardless
      of sidebarCollapsed — the class-based collapsed styles are overridden. */
   .sidebar .nav-label,
-  .sidebar-logo .subtitle { display: block; }
+  .sidebar-logo .subtitle {
+    display: block;
+  }
   .sidebar--collapsed .sidebar .nav-label,
-  .sidebar--collapsed .sidebar-logo .subtitle { display: block; }
-  .sidebar-nav a { justify-content: flex-start; }
-  .sidebar--collapsed .sidebar-nav a { justify-content: flex-start; }
-  .sidebar-collapse-btn { justify-content: flex-start; }
-  .sidebar--collapsed .sidebar-collapse-btn { justify-content: flex-start; }
-  .sidebar-logo h1 { font-size: 1.25rem; text-align: left; }
-  .sidebar--collapsed .sidebar-logo h1 { font-size: 1.25rem; text-align: left; }
+  .sidebar--collapsed .sidebar-logo .subtitle {
+    display: block;
+  }
+  .sidebar-nav a {
+    justify-content: flex-start;
+  }
+  .sidebar--collapsed .sidebar-nav a {
+    justify-content: flex-start;
+  }
+  .sidebar-collapse-btn {
+    justify-content: flex-start;
+  }
+  .sidebar--collapsed .sidebar-collapse-btn {
+    justify-content: flex-start;
+  }
+  .sidebar-logo h1 {
+    font-size: 1.25rem;
+    text-align: left;
+  }
+  .sidebar--collapsed .sidebar-logo h1 {
+    font-size: 1.25rem;
+    text-align: left;
+  }
   /* Restore footer row layout inside the mobile drawer */
   .sidebar-footer,
   .sidebar--collapsed .sidebar-footer {
@@ -792,11 +1167,19 @@ body {
   .sidebar--collapsed .sidebar {
     width: var(--sidebar-width);
   }
-  .app-main { margin-left: 0; }
-  .sidebar--collapsed .app-main { margin-left: 0; }
-  .sidebar-toggle { display: inline-flex; }
+  .app-main {
+    margin-left: 0;
+  }
+  .sidebar--collapsed .app-main {
+    margin-left: 0;
+  }
+  .sidebar-toggle {
+    display: inline-flex;
+  }
   /* Hide the collapse chevron button on mobile — irrelevant for the drawer */
-  .sidebar-collapse-btn { display: none; }
+  .sidebar-collapse-btn {
+    display: none;
+  }
   .sidebar-backdrop {
     display: block;
     position: fixed;
@@ -865,10 +1248,18 @@ body {
   letter-spacing: -0.025em;
 }
 
-.stat-card.warning .stat-value { color: #ea580c; }
-.stat-card.success .stat-value { color: #059669; }
-.stat-card.danger  .stat-value { color: var(--color-danger); }
-.stat-card.info    .stat-value { color: var(--color-primary); }
+.stat-card.warning .stat-value {
+  color: #ea580c;
+}
+.stat-card.success .stat-value {
+  color: #059669;
+}
+.stat-card.danger .stat-value {
+  color: var(--color-danger);
+}
+.stat-card.info .stat-value {
+  color: var(--color-primary);
+}
 
 /* ---- Card (data cards — crisp and flat, 1px border, no heavy shadow) ---- */
 .card {
@@ -924,7 +1315,7 @@ th {
 td {
   padding: 0.5rem 0.75rem;
   border-top: 1px solid var(--color-border-faint);
-  color: #334155;
+  color: var(--color-text-body);
   font-size: 0.875rem;
 }
 
@@ -947,16 +1338,46 @@ tbody tr:hover {
   letter-spacing: 0.025em;
 }
 
-.badge.success    { background: var(--color-success-bg);  color: var(--color-success-text); }
-.badge.warning    { background: var(--color-warning-bg);  color: var(--color-warning-text); }
-.badge.danger     { background: var(--color-danger-bg);   color: var(--color-danger-text); }
-.badge.info       { background: var(--color-info-bg);     color: var(--color-info-text); }
-.badge.increasing { background: var(--color-success-bg);  color: var(--color-success-text); }
-.badge.decreasing { background: var(--color-danger-bg);   color: var(--color-danger-text); }
-.badge.stable     { background: #e0e7ff; color: #3730a3; }
-.badge.high       { background: var(--color-danger-bg);   color: var(--color-danger-text); }
-.badge.medium     { background: var(--color-warning-bg);  color: var(--color-warning-text); }
-.badge.low        { background: var(--color-info-bg);     color: var(--color-info-text); }
+.badge.success {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+.badge.warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+.badge.danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+.badge.info {
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+}
+.badge.increasing {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+.badge.decreasing {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+.badge.stable {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+.badge.high {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+.badge.medium {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+.badge.low {
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+}
 
 /* ---- State helpers ---- */
 .loading {
@@ -967,7 +1388,7 @@ tbody tr:hover {
 }
 
 .error {
-  background: #fef2f2;
+  background: var(--color-danger-soft);
   border: 1px solid var(--color-danger-bg);
   color: var(--color-danger-text);
   padding: var(--space-4);
