@@ -276,14 +276,15 @@ export default {
       return [...currentUser.value.tasks, ...apiTasks.value]
     })
 
-    // Map each route path to the SAME i18n key its nav link uses.
+    // Map each route path to its page title i18n key.
     const TITLE_KEYS = {
       '/': 'nav.overview',
       '/inventory': 'nav.inventory',
       '/orders': 'nav.orders',
       '/spending': 'nav.finance',
       '/demand': 'nav.demandForecast',
-      '/reports': 'nav.reports'
+      '/reports': 'nav.reports',
+      '/backlog': 'nav.backlog'
     }
     const currentPageTitle = computed(() => t(TITLE_KEYS[route.path] || 'nav.overview'))
 
