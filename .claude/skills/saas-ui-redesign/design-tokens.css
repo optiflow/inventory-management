@@ -1,0 +1,71 @@
+/*
+ * Design tokens for the SaaS UI redesign.
+ *
+ * Paste this :root block into the GLOBAL (non-scoped) <style> of
+ * client/src/App.vue, above the `body` rule. Values are derived from the
+ * app's existing hardcoded palette so nothing changes visually — they just
+ * become reusable. See the "Old -> token" mapping table in SKILL.md.
+ */
+:root {
+  /* ---- Color: surfaces & text ---- */
+  --color-bg:            #f8fafc;  /* app background (body)              */
+  --color-surface:       #ffffff;  /* cards, sidebar, topbar             */
+  --color-surface-alt:   #f8fafc;  /* table head, hover rows, inputs     */
+  --color-text:          #0f172a;  /* headings / strong text             */
+  --color-text-body:     #1e293b;  /* body text                          */
+  --color-text-muted:    #475569;  /* table cells / secondary headings   */
+  --color-text-subtle:   #64748b;  /* labels, subtitles, inactive nav    */
+  --color-text-faint:    #94a3b8;  /* placeholders, icons                */
+
+  /* ---- Color: borders ---- */
+  --color-border:        #e2e8f0;  /* default borders                    */
+  --color-border-strong: #cbd5e1;  /* hover borders / inputs             */
+  --color-border-faint:  #f1f5f9;  /* table row separators               */
+
+  /* ---- Color: brand / primary ---- */
+  --color-primary:        #2563eb;
+  --color-primary-hover:  #1d4ed8;
+  --color-primary-soft:   #eff6ff;  /* active nav pill background         */
+  --color-focus-border:   #3b82f6;
+  --color-focus-ring:     rgba(59, 130, 246, 0.1);
+
+  /* ---- Color: semantic (bg / text pairs, match current badges) ---- */
+  --color-success:      #10b981;  --color-success-bg: #d1fae5;  --color-success-text: #065f46;
+  --color-warning:      #f59e0b;  --color-warning-bg: #fed7aa;  --color-warning-text: #92400e;
+  --color-danger:       #dc2626;  --color-danger-bg:  #fecaca;  --color-danger-text:  #991b1b;
+  --color-info-bg:      #dbeafe;  --color-info-text:  #1e40af;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+
+  /* ---- Radii ---- */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.10);
+
+  /* ---- Layout dimensions ---- */
+  --sidebar-width:      240px;
+  --sidebar-rail-width: 72px;    /* collapsed icon rail (tablet)         */
+  --topbar-height:      60px;    /* slimmer than the old 70px top nav    */
+  --content-max-width:  1600px;  /* preserved from old layout            */
+
+  /* ---- Z-index layers (single source of truth) ---- */
+  --z-filterbar:      80;
+  --z-topbar:         90;
+  --z-sidebar:        100;
+  --z-dropdown:       1000;  /* ProfileMenu / LanguageSwitcher menus      */
+  --z-modal-backdrop: 1100;
+  --z-modal:          1200;
+}

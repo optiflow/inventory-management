@@ -1,9 +1,11 @@
 <template>
-  <div class="language-switcher">
+  <div class="language-switcher" :class="{ 'language-switcher--collapsed': collapsed }">
     <button
       class="language-button"
       @click="toggleDropdown"
       @blur="handleBlur"
+      :title="collapsed ? localeName : undefined"
+      :aria-label="collapsed ? localeName : undefined"
     >
       <svg
         width="20"
@@ -17,8 +19,10 @@
         <path d="M10 3C10 3 7.5 5.5 7.5 10C7.5 14.5 10 17 10 17" stroke="currentColor" stroke-width="1.5"/>
         <path d="M10 3C10 3 12.5 5.5 12.5 10C12.5 14.5 10 17 10 17" stroke="currentColor" stroke-width="1.5"/>
       </svg>
-      <span class="language-label">{{ localeName }}</span>
+      <!-- Hide language label and chevron in collapsed/rail mode -->
+      <span v-if="!collapsed" class="language-label">{{ localeName }}</span>
       <svg
+        v-if="!collapsed"
         class="chevron"
         :class="{ 'chevron-open': isDropdownOpen }"
         width="16"
@@ -30,6 +34,8 @@
       </svg>
     </button>
 
+    <!-- Dropdown menu — always opens upward; width is not constrained to the
+         trigger width so it remains fully readable in collapsed/rail mode. -->
     <div v-if="isDropdownOpen" class="dropdown-menu">
       <button
         v-for="locale in availableLocales"
@@ -57,6 +63,17 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from '../composables/useI18n'
+
+const props = defineProps({
+  /**
+   * When true the sidebar is in rail/icon-only mode.
+   * The button shows only the globe icon; the text label and chevron are hidden.
+   */
+  collapsed: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const { currentLocale, setLocale, availableLocales, localeName } = useI18n()
 
@@ -113,6 +130,14 @@ const selectLanguage = (locale) => {
   border-color: #cbd5e1;
 }
 
+/* Collapsed: icon-only button — centered, no horizontal padding */
+.language-switcher--collapsed .language-button {
+  padding: 0.5rem;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
 .globe-icon {
   color: #64748b;
   flex-shrink: 0;
@@ -134,15 +159,18 @@ const selectLanguage = (locale) => {
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
+  bottom: calc(100% + 0.5rem);
+  top: auto;
+  /* Anchor to the left in collapsed mode so the menu doesn't go offscreen
+     to the left; in expanded mode keep the original right-aligned anchor. */
+  left: 0;
+  right: auto;
   min-width: 160px;
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  overflow: hidden;
+  z-index: var(--z-dropdown);
 }
 
 .dropdown-item {

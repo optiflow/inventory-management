@@ -1,15 +1,19 @@
 <template>
-  <div class="profile-menu">
+  <div class="profile-menu" :class="{ 'profile-menu--collapsed': collapsed }">
     <button
       class="profile-button"
       @click="toggleDropdown"
       @blur="handleBlur"
+      :title="collapsed ? currentUser.name : undefined"
+      :aria-label="collapsed ? currentUser.name : undefined"
     >
       <div class="avatar">
         {{ getInitials(currentUser.name) }}
       </div>
-      <span class="profile-name">{{ currentUser.name }}</span>
+      <!-- Hide name and chevron in collapsed/rail mode -->
+      <span v-if="!collapsed" class="profile-name">{{ currentUser.name }}</span>
       <svg
+        v-if="!collapsed"
         class="chevron"
         :class="{ 'chevron-open': isDropdownOpen }"
         width="16"
@@ -21,6 +25,8 @@
       </svg>
     </button>
 
+    <!-- Dropdown menu — always opens upward; anchored left so it doesn't
+         clip into the narrow rail when in collapsed mode. -->
     <div v-if="isDropdownOpen" class="dropdown-menu">
       <div class="dropdown-header">
         <div class="avatar-large">
@@ -77,6 +83,17 @@
 import { ref, computed } from 'vue'
 import { useAuth } from '../composables/useAuth'
 import { useI18n } from '../composables/useI18n'
+
+const props = defineProps({
+  /**
+   * When true the sidebar is in rail/icon-only mode.
+   * The button shows only the avatar circle; the name and chevron are hidden.
+   */
+  collapsed: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const { currentUser, logout, getInitials } = useAuth()
 const { t } = useI18n()
@@ -138,6 +155,18 @@ const handleLogout = () => {
   border-color: #cbd5e1;
 }
 
+/* Collapsed: icon-only button — centered, avatar fills the button */
+.profile-menu--collapsed .profile-button {
+  padding: 0.25rem;
+  justify-content: center;
+  border: none;
+  background: none;
+}
+
+.profile-menu--collapsed .profile-button:hover {
+  background: #f8fafc;
+}
+
 .avatar {
   width: 32px;
   height: 32px;
@@ -150,6 +179,7 @@ const handleLogout = () => {
   font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.025em;
+  flex-shrink: 0;
 }
 
 .profile-name {
@@ -169,15 +199,19 @@ const handleLogout = () => {
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
+  bottom: calc(100% + 0.5rem);
+  top: auto;
+  /* Anchor left so the menu overflows into the content area (to the right)
+     rather than going off-screen to the left when in collapsed/rail mode.
+     The menu is wider than the 72px rail; z-index keeps it above content. */
+  left: 0;
+  right: auto;
   min-width: 280px;
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  overflow: hidden;
+  z-index: var(--z-dropdown);
 }
 
 .dropdown-header {
