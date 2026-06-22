@@ -107,7 +107,7 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-label">{{ t('reports.totalRevenueYtd') }}</div>
+          <div class="stat-label">{{ totalRevenueLabel }}</div>
           <div class="stat-value">{{ formatMoney(totalRevenue) }}</div>
         </div>
         <div class="stat-card">
@@ -115,7 +115,7 @@
           <div class="stat-value">{{ formatMoney(avgMonthlyRevenue) }}</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">{{ t('reports.totalOrdersYtd') }}</div>
+          <div class="stat-label">{{ totalOrdersLabel }}</div>
           <div class="stat-value">{{ totalOrders }}</div>
         </div>
         <div class="stat-card">
@@ -163,6 +163,14 @@ export default {
       return monthlyData.value.reduce((sum, month) => sum + (month.order_count || 0), 0)
     })
 
+    const totalRevenueLabel = computed(() => {
+      return t(selectedPeriod.value === 'all' ? 'reports.totalRevenueYtd' : 'reports.totalRevenue')
+    })
+
+    const totalOrdersLabel = computed(() => {
+      return t(selectedPeriod.value === 'all' ? 'reports.totalOrdersYtd' : 'reports.totalOrders')
+    })
+
     const bestQuarter = computed(() => {
       if (quarterlyData.value.length === 0) {
         return t('common.noData')
@@ -186,7 +194,7 @@ export default {
         quarterlyData.value = quarterly
         monthlyData.value = monthly
       } catch (err) {
-        error.value = `${t('reports.loadError')}: ${err.message}`
+        error.value = t('reports.loadError', { message: err.message })
       } finally {
         loading.value = false
       }
@@ -248,7 +256,7 @@ export default {
 
     const getGrowthRate = (current, previous) => {
       if (previous === 0) {
-        return 'N/A'
+        return t('reports.notAvailable')
       }
 
       const rate = ((current - previous) / previous) * 100
@@ -271,6 +279,8 @@ export default {
       totalRevenue,
       avgMonthlyRevenue,
       totalOrders,
+      totalRevenueLabel,
+      totalOrdersLabel,
       bestQuarter,
       formatMoney,
       formatMonth,
@@ -289,46 +299,8 @@ export default {
   padding: 0;
 }
 
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-  margin-bottom: 1.5rem;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0f172a;
-  margin: 0;
-}
-
 .reports-table {
   width: 100%;
-  border-collapse: collapse;
-}
-
-.reports-table th {
-  background: #f8fafc;
-  padding: 0.75rem;
-  text-align: left;
-  font-weight: 600;
-  color: #64748b;
-  border-bottom: 2px solid #e2e8f0;
-}
-
-.reports-table td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.reports-table tr:hover {
-  background: #f8fafc;
 }
 
 .chart-container {
@@ -380,55 +352,6 @@ export default {
   white-space: nowrap;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.stat-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #3b82f6;
-}
-
-.stat-label {
-  font-size: 0.875rem;
-  color: #64748b;
-  margin-bottom: 0.5rem;
-}
-
-.stat-value {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.badge.success {
-  background: #dcfce7;
-  color: #166534;
-}
-
-.badge.warning {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.badge.danger {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
 .positive-change {
   color: #16a34a;
   font-weight: 600;
@@ -437,20 +360,6 @@ export default {
 .negative-change {
   color: #dc2626;
   font-weight: 600;
-}
-
-.loading {
-  text-align: center;
-  padding: 3rem;
-  color: #64748b;
-}
-
-.error {
-  background: #fee2e2;
-  color: #991b1b;
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
 }
 
 .no-data {

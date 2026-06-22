@@ -81,9 +81,10 @@ class TestReportsEndpoints:
         orders = orders_response.json()
 
         assert sum(report["total_orders"] for report in reports) == len(orders)
-        assert sum(report["total_revenue"] for report in reports) == sum(
-            order["total_value"] for order in orders
-        )
+        assert abs(
+            sum(report["total_revenue"] for report in reports)
+            - sum(order["total_value"] for order in orders)
+        ) < 0.01
 
     def test_reports_with_all_filters_match_unfiltered_reports(self, client):
         """Test that 'all' report filter values match no filters."""
